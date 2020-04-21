@@ -1,0 +1,17 @@
+pkgname=viettel-themes
+pkgver=0.0.5
+pkgrel=1
+pkgdesc="Viettel themes kde theme, icons, cursors, decoration"
+arch=('any')
+url="http://vtcc.vn/production/cyos/"
+license=('GPL-3.0+')
+#depends=('sos-plasma-resource-monitor')
+source=("viettel-themes_0.0.5.tar.xz")
+md5sums=('f9de538dd73a09201a2348c018e77f1a')
+
+package() {
+	cd ${srcdir}/
+	mkdir -p ${pkgdir}/usr/share/themes
+	cp -r viettel-themes/themes/* ${pkgdir}/usr/share/
+	chown -R root:root ${pkgdir}/usr/share/themes
+}

@@ -1,0 +1,29 @@
+pkgname=viettel-transparency-theme
+pkgver=0.0.3
+pkgrel=1
+pkgdesc="A bright theme for VOS"
+arch=('any')
+url="http://vtcc.vn/production/cyos/"
+license=('GPL-3.0+')
+#depends=('sos-plasma-resource-monitor')
+source=("viettel-transparency-theme_0.0.3.tar.gz")
+md5sums=('3078f6f87852c85425316b6e234824d2')
+
+package() {
+	cd ${srcdir}/
+	mkdir -p ${pkgdir}/usr/share/wallpapers/
+	cp -r viettel-transparency-theme/wallpapers/* ${pkgdir}/usr/share/wallpapers/
+	mkdir -p ${pkgdir}/usr/share/plasma/
+	cp -r viettel-transparency-theme/plasma/* ${pkgdir}/usr/share/plasma/
+	mkdir -p ${pkgdir}/usr/share/sddm/themes/
+	cp -r viettel-transparency-theme/sddm-themes/* ${pkgdir}/usr/share/sddm/themes/
+	mkdir -p ${pkgdir}/usr/share/aurorae/themes/
+	cp -r viettel-transparency-theme/aurorae/themes/* ${pkgdir}/usr/share/aurorae/themes/
+	mkdir -p ${pkgdir}/etc/
+	cp viettel-transparency-theme/configs/sddm.conf ${pkgdir}/etc/
+	chown -R root:root ${pkgdir}/usr/share/wallpapers/
+	chown -R root:root ${pkgdir}/usr/share/plasma/
+	chown -R root:root ${pkgdir}/usr/share/sddm/themes/
+	chown -R root:root ${pkgdir}/usr/share/aurorae/themes/
+	chown -R root:root ${pkgdir}/usr/share/plasma/
+}
