@@ -1,0 +1,41 @@
+pkgname=sfive-browser-stable
+pkgver=80.0.3987.123
+pkgrel=1
+pkgdesc="SFive is an open-source browser project that aims to build a safer, faster, and more stable way to experience the web"
+arch=('x86_64')
+url="https://sfive.vn/"
+license=("MPL" "BSD" "custom:chromium")
+depends=("ca-certificates" "ttf-liberation" "libappindicator-gtk3" "alsa-lib" "at-spi2-atk" "atk" "at-spi2-core" "glibc" "cairo"
+         "libcups" "dbus" "expat" "gcc-libs" "gdk-pixbuf2" "glib2" "gtk3" "nspr" "nss" "pango" "libx11" "libxcb" "libxcomposite"
+         "libxcursor" "libxdamage" "libxext" "libxfixes" "libxi" "libxrandr" "libxrender" "libxss" "libxtst" "wget" "xdg-utils")
+optdepends=("cups: Printer support"
+            "pepper-flash: Adobe Flash support"
+            "libu2f-host")
+#replaces=('')
+source=("https://sfive.vn/beta/${pkgname}_current_amd64.deb" "libGLESv2.so" "libEGL.so")
+sha256sums=('EE2EB837B0722EB612F45036E1E50E863D69D3E71B2A03520853C8AA2A14F26E'
+            '8ac1a166267d941835f7005a9c98ae7baa1c451e7c1f9813294e01f3b3d14b78'
+            '9a88aa9686bc0c37486dae8f48eac22bbfa8bb077b2e60eb954d328207c929bc')
+package() {
+	msg2 "Extracting the data.tar.xz..."
+	bsdtar -xf data.tar.xz -C "$pkgdir/"
+	
+	#Library
+	install -m755 "libGLESv2.so"  "$pkgdir"/opt/viettel/sfive/libGLESv2.so
+	install -m755 "libEGL.so"  "$pkgdir"/opt/viettel/sfive/libEGL.so
+	#Icons
+	for i in 16x16 24x24 32x32 48x48 64x64 128x128 256x256; do
+		install -Dm644 "$pkgdir"/opt/viettel/sfive/product_logo_${i/x*}.png \
+				"$pkgdir"/usr/share/icons/hicolor/$i/apps/sfive-browser.png
+ 	done
+	
+	# temporary fix for wrong permissions on subdirs:
+	#find "${pkgdir}" -type d -exec chmod 755 {} \;
+	
+	msg2 "Fixing Chrome icon resolution..."
+	sed -i "/Exec=/i\StartupWMClass=Chromium-browser" "$pkgdir"/usr/share/applications/sfive-browser.desktop
+
+	msg2 "Removing Debian Cron job and duplicate product logos..."
+	rm -r "$pkgdir"/etc/cron.daily/ "$pkgdir"/opt/viettel/sfive/cron/
+	rm "$pkgdir"/opt/viettel/sfive/product_logo_*.png
+}
