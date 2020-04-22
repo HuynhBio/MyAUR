@@ -34,7 +34,7 @@ package() {
 	# temporary fix for wrong permissions on subdirs:
 	#find "${pkgdir}" -type d -exec chmod 755 {} \;
 	
-	msg2 "Fixing Chrome icon resolution..."
+	msg2 "Fixing Sfive icon resolution..."
 	sed -i "/Exec=/i\StartupWMClass=Chromium-browser" "$pkgdir"/usr/share/applications/sfive-browser.desktop
 
 	msg2 "Removing Debian Cron job and duplicate product logos..."
