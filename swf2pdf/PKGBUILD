@@ -1,0 +1,22 @@
+pkgname=swf2pdf
+pkgver=1.0
+pkgrel=1
+pkgdesc="This is a simple command-line program that takes one or more .swf files (Flash animations) and renders the first frame of each into a pdf document (one per page)"
+arch=(any)
+url="https://github.com/faubi/swf2pdf"
+license=(LGPL)
+depends=('cairo')
+makedepends=('swfdec>=0.8')
+source=("git+https://github.com/faubi/swf2pdf.git")
+md5sums=('SKIP')
+build() {
+  cd "$srcdir/$pkgname"
+  make 
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  mkdir -p "$pkgdir"/usr/bin/
+  install -m755 "swf2pdf"  "$pkgdir"/usr/bin/swf2pdf
+  chown -R root:root "$pkgdir"/usr/bin/
+}
