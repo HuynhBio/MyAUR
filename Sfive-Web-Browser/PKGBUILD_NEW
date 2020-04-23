@@ -13,8 +13,8 @@ optdepends=("cups: Printer support"
             "libu2f-host")
 #replaces=('')
 source=("https://sfive.vn/beta/${pkgname}_current_amd64.deb"
-        "https://raw.githubusercontent.com/HuynhBio/MyAUR/master/sfive/libGLESv2.so"
-        "https://raw.githubusercontent.com/HuynhBio/MyAUR/master/sfive/libEGL.so")
+        "https://raw.githubusercontent.com/HuynhBio/MyAUR/master/Sfive-Web-Browser/libGLESv2.so"
+        "https://raw.githubusercontent.com/HuynhBio/MyAUR/master/Sfive-Web-Browser/libEGL.so")
 sha256sums=('EE2EB837B0722EB612F45036E1E50E863D69D3E71B2A03520853C8AA2A14F26E'
             '8ac1a166267d941835f7005a9c98ae7baa1c451e7c1f9813294e01f3b3d14b78'
             '9a88aa9686bc0c37486dae8f48eac22bbfa8bb077b2e60eb954d328207c929bc')
