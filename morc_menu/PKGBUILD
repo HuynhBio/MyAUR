@@ -1,0 +1,23 @@
+pkgname=morc_menu
+pkgver=1
+pkgrel=1
+pkgdesc="Categorized desktop application menu"
+arch=('any')
+url="https://github.com/Boruch-Baum/morc_menu"
+license=('GPL-3.0+')
+depends=('rofi')
+source=("git+https://github.com/HuynhBio/My_morc_menu.git")
+md5sums=('SKIP')
+package() {
+    cd ${srcdir}/My_morc_menu
+    mkdir -p ${pkgdir}/usr/bin
+    install -m755 ${pkgname} ${pkgdir}/usr/bin/${pkgname}
+    mkdir -p ${pkgdir}/usr/share/man/man1
+	  install -m644 ${pkgname}.1 ${pkgdir}/usr/share/man/man1/${pkgname}.1
+    mkdir -p ${pkgdir}/usr/share/${pkgname}
+    install -m644 ${pkgname}.conf ${pkgdir}/usr/share/${pkgname}/${pkgname}.conf
+	  install -m644 README.md ${pkgdir}/usr/share/${pkgname}/README.md
+    chown -R root:root ${pkgdir}/usr/bin/
+    chown -R root:root ${pkgdir}/usr/share/${pkgname}/
+    chown -R root:root ${pkgdir}/usr/share/man/man1/
+}
