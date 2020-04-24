@@ -13,10 +13,10 @@ package() {
     mkdir -p ${pkgdir}/usr/bin
     install -m755 ${pkgname} ${pkgdir}/usr/bin/${pkgname}
     mkdir -p ${pkgdir}/usr/share/man/man1
-	  install -m644 ${pkgname}.1 ${pkgdir}/usr/share/man/man1/${pkgname}.1
+    install -m644 ${pkgname}.1 ${pkgdir}/usr/share/man/man1/${pkgname}.1
     mkdir -p ${pkgdir}/usr/share/${pkgname}
     install -m644 ${pkgname}.conf ${pkgdir}/usr/share/${pkgname}/${pkgname}.conf
-	  install -m644 README.md ${pkgdir}/usr/share/${pkgname}/README.md
+    install -m644 README.md ${pkgdir}/usr/share/${pkgname}/README.md
     chown -R root:root ${pkgdir}/usr/bin/
     chown -R root:root ${pkgdir}/usr/share/${pkgname}/
     chown -R root:root ${pkgdir}/usr/share/man/man1/
