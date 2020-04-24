@@ -6,7 +6,7 @@ arch=('any')
 url="http://vtcc.vn/production/cyos/"
 license=('GPL-3.0+')
 #depends=('sos-plasma-resource-monitor')
-source=("viettel-transparency-theme_0.0.3.tar.gz")
+source=("https://raw.githubusercontent.com/HuynhBio/MyAUR/master/viettel-transparency/$pkgname_$pkgver.tar.gz")
 md5sums=('3078f6f87852c85425316b6e234824d2')
 
 package() {
