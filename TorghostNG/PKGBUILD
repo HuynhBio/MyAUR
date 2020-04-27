@@ -3,11 +3,11 @@ pkgver=1.2
 pkgrel=1
 pkgdesc="TorghostNG là một công cụ giúp bạn kết nối Internet ẩn danh qua Tor. TorghostNG Được gõ lại từ TorGhost với Python 3"
 arch=('x86_64')
-url="https://github.com/HuynhBio/TorghostNG"
+url="https://github.com/gitkern3l/TorghostNG"
 license=('GPL3')
 depends=('python' 'macchanger' 'tor')
 makedepends=('pyinstaller>=3.6')
-source=("git+https://github.com/HuynhBio/${pkgname}.git")
+source=("git+https://github.com/gitkern3l/${pkgname}.git")
 md5sums=('SKIP')
 
 build() {
