@@ -1,7 +1,7 @@
 pkgname=TorghostNG
 pkgver=1.2
 pkgrel=1
-pkgdesc="TorghostNG là một công cụ giúp bạn kết nối Internet ẩn danh qua Tor. TorghostNG Được gõ lại từ TorGhost với Python 3"
+pkgdesc="TorghostNG là một công cụ giúp bạn kết nối Internet ẩn danh qua Tor."
 arch=('x86_64')
 url="https://github.com/gitkern3l/TorghostNG"
 license=('GPL3')
