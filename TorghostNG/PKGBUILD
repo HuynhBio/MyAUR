@@ -10,13 +10,6 @@ makedepends=('pyinstaller>=3.6')
 source=("git+https://github.com/gitkern3l/${pkgname}.git")
 md5sums=('SKIP')
 
-prepare (){
-  if [ -e  "$srcdir/$pkgname" ]
-  then
-    rm -r "$srcdir/$pkgname"
-  fi
-}
-
 build() {
   cd $srcdir/${pkgname}
   pyinstaller --onefile torghostng.py 
