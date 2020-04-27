@@ -1,0 +1,25 @@
+pkgname=TorghostNG
+pkgver=1
+pkgrel=1
+pkgdesc=""
+arch=('x86_64')
+url="https://github.com/HuynhBio/TorghostNG"
+license=('GPL3')
+depends=(
+  'macchanger'
+  'tor'
+)
+source=("git+https://github.com/HuynhBio/TorghostNG.git")
+md5sums=('SKIP')
+
+prepare (){
+
+}
+
+build() {
+
+}
+
+package() {
+
+}
