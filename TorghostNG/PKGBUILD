@@ -18,11 +18,11 @@ build() {
 package() {
   cd ${srcdir}/${pkgname}
   mkdir -p ${pkgdir}/usr/bin
-  install -m755 dist/torghostng /usr/bin/torghostng
+  install -m755 dist/torghostng ${pkgdir}/usr/bin/torghostng
   mkdir -p ${pkgdir}/usr/bin/torngconf
-  install -m644 torngconf/Version {pkgdir}/usr/bin/torngconf/Version
-  install -m644 torngconf/langconf.txt {pkgdir}/usr/bin/torngconf/langconf.txt
-  install -m644 torngconf/theme.py {pkgdir}/usr/bin/torngconf/theme.py
+  install -m644 torngconf/Version ${pkgdir}/usr/bin/torngconf/Version
+  install -m644 torngconf/langconf.txt ${pkgdir}/usr/bin/torngconf/langconf.txt
+  install -m644 torngconf/theme.py ${pkgdir}/usr/bin/torngconf/theme.py
   chown -R root:root ${pkgdir}/usr/bin
   chown -R root:root ${pkgdir}/usr/bin/torngconf
 }
