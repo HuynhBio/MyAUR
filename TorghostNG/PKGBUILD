@@ -5,10 +5,8 @@ pkgdesc=""
 arch=('x86_64')
 url="https://github.com/HuynhBio/TorghostNG"
 license=('GPL3')
-depends=(
-  'macchanger'
-  'tor'
-)
+depends=('macchanger' 'tor')
+makedepends=('pyinstaller')
 source=("git+https://github.com/HuynhBio/TorghostNG.git")
 md5sums=('SKIP')
 
