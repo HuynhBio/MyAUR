@@ -5,7 +5,7 @@ pkgdesc="TorghostNG là một công cụ giúp bạn kết nối Internet ẩn d
 arch=('x86_64')
 url="https://github.com/gitkern3l/TorghostNG"
 license=('GPL3')
-depends=('python' 'macchanger' 'tor')
+depends=('iptables' 'systemd' 'python' 'macchanger' 'tor')
 makedepends=('pyinstaller>=3.6')
 source=("git+https://github.com/gitkern3l/${pkgname}.git")
 md5sums=('SKIP')
